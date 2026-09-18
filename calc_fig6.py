@@ -34,9 +34,9 @@ def calc_fig6(case):
         sx2 = 1/n
         sy2 = 1/m
       s2 =  sx2 / (n * m**2) + sy2 / (n**2 * m)
-      df = (sx2/m + sy2/n)**2 / (sx2**2/((n-1)*m**2) + sy2**2/((m-1)*n**2))
+      nu = (sx2/m + sy2/n)**2 / (sx2**2/((n-1)*m**2) + sy2**2/((m-1)*n**2))
       W = (q_hat - 0.5) / s2**0.5
-      p_bm = 2 * stats.t(df).sf(np.abs(W))
+      p_bm = 2 * stats.t(nu).sf(np.abs(W))
       p_perm = permutation_test(x_arr, y_arr, test='brunner_munzel',
                                 method='simulation', n_iter=n_perm,
                                 seed=np.random.randint(10**7))[1]
